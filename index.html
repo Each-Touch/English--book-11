@@ -2,10 +2,8 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generation-source" content="AI生成">
-  <link rel="icon" type="image/png" href="https://metis-online.fbcontent.cn/metis-lectio/uxPOvzX0E3VvOxDn9ynBJE.png">
-  <title>飞象老师</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>互動繪本</title>
   <style>
     * {
       margin: 0;
@@ -16,6 +14,7 @@
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       overflow: hidden;
+      background-color: #fff;
     }
 
     .iframe-container {
@@ -26,26 +25,14 @@
       position: relative;
     }
 
+    /* 針對移動端的適配樣式 */
     .iframe-container.mobile {
-      padding: 0.48rem 0 0 0;
-
-      .watermark-overlay {
-        height: 0.48rem;
-      }
-
-      .content-iframe {
-        border: transparent;
-        border-radius: 0;
-      }
-
-      .watermark-logo {
-        height: 0.24rem; /* 移动端 Logo 高度适配 */
-        margin-right: 0;
-      }
-
-      .watermark-content {
-        padding: 0 0.16rem;
-      }
+      padding: 50px 0 0 0;
+    }
+    
+    .iframe-container.mobile .content-iframe {
+      border: transparent;
+      border-radius: 0;
     }
 
     .content-iframe {
@@ -57,7 +44,7 @@
       border-radius: 16px;
     }
 
-    /* === 修改点1：顶部导航栏背景色改为黄色，高度固定为 56px === */
+    /* --- 核心修改：頂部 LOGO 欄樣式 --- */
     .watermark-overlay {
       position: fixed;
       top: 0;
@@ -67,345 +54,71 @@
       z-index: 1000;
       display: flex;
       align-items: center;
-      cursor: pointer;
-      background-color: #FDD95A;
+      /* 背景改為黃色 */
+      background-color: #FDD95A; 
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
-    /* === 修改点2：Logo 左对齐 === */
     .watermark-content {
       width: 100%;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      padding: 0 32px;
+      /* 內容靠左對齊 */
+      justify-content: flex-start; 
+      padding: 0 20px;
     }
 
-    .left-watermark-content {
-      display: flex;
-      align-items: center;
-    }
-
-    .watermark-logo {
-      height: 32px; /* 限制 Logo 高度 */
-      display: flex;
-      align-items: center;
-    }
-
-    /* === 修改点2：LOGO 图片样式 === */
-    .watermark-logo img {
-      height: 100%;
+    /* Logo 圖片樣式 */
+    .custom-logo-img {
+      height: 36px; 
       width: auto;
       display: block;
+      object-fit: contain;
     }
+
   </style>
-
-  <script>
-    window.__SERVER_DATA__ = {
-      watermarkChatId: "3FB9E3A9F0C3FB4FF07159D8C817C057",
-      watermarkEnv: "online",
-      watermarkUrl: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/document/jasDTTUCzc3rWLnz5rosHB.html",
-    }
-  </script>
-
-  <script>
-      (function () {
-        // 检测是否为本地文件协议
-        if (window.location.protocol === 'file:') {
-          const watermarkUrl = window.__SERVER_DATA__.watermarkUrl
-          // 检查是否有有效的在线地址
-          if (watermarkUrl && watermarkUrl.startsWith('http')) {
-            // 【核心修复】：注释掉此行，阻止其强行跳转到线上旧版本网页
-            // window.location.replace(watermarkUrl) 
-            console.log('已阻止强制跳转，允许本地预览修改效果');
-          }
-        }
-      })()
-  </script>
-
-  <script src="./飞象老师_files/frog-sdk.js"></script>
-
-  <script src="./飞象老师_files/init-frog.js"></script>
 </head>
 
 <body>
+
   <div class="iframe-container">
+
     <div class="watermark-overlay">
       <div class="watermark-content">
-        <div class="left-watermark-content">
-          <div class="watermark-logo">
-            <img src="LOGO.png" alt="Logo">
-          </div>
-        </div>
-        </div>
+        <img src="LOGO.png" alt="Logo" class="custom-logo-img">
+      </div>
     </div>
 
-    <iframe class="content-iframe" frameborder="0" src="./飞象老师_files/saved_resource.html">
+    <iframe class="content-iframe"
+      src="https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/document/ivhRhRcZgD7DULCaQkEVUB.html"
+      frameborder="0"
+      allow="microphone *; camera *; autoplay *;">
     </iframe>
 
-    </div>
+  </div>
 
   <script>
-    function getIsMobile() {
+    // --- 螢幕適配邏輯 (Rem 計算與佈局檢測) ---
+    
+    function adjustRem () {
+      const pcBaseWidth = 375 
+      const width = document.documentElement.clientWidth
+      document.documentElement.style.fontSize = `${(width / pcBaseWidth * 100).toFixed(2)}px`
+    }
+
+    function getIsMobile () {
       const width = document.documentElement.clientWidth
       const isMobile = /Android|webOS|iPhone|iPod|BlackBerry|iPad|Windows Phone|Mobile/i.test(navigator.userAgent) || width <= 768
       return isMobile
     }
 
-    // 打开飞象老师官网
-    function openFeixiangTeacher(event) {
-      const isMobile = getIsMobile()
-
-      // 判断是否为移动端浏览器
-      if (isMobile) {
-        // 移动端不跳转
-        return
-      }
-      window.open('https://www.feixianglaoshi.com', '_blank')
-    }
-
-    // ==================== 埋点相关代码 ====================
-
-    /**
-     * 页面停留时长统计
-     */
-    (function () {
-      let startTime = null
-      let totalTime = 0
-      let reportTimer = null // 防抖定时器
-
-      // 开始计时
-      function startTimer() {
-        if (!startTime) {
-          startTime = Date.now()
-          console.log('[埋点] 开始计时')
-        }
-      }
-
-      // 停止计时并累加时长
-      function stopTimer() {
-        if (startTime) {
-          totalTime += Date.now() - startTime
-          startTime = null
-          console.log('[埋点] 停止计时，累计时长:', Math.floor(totalTime / 1000), '秒')
-        }
-      }
-
-      // 检查页面是否真正可见
-      function isPageVisible() {
-        if (document.hidden) { return false }
-        if (document.visibilityState && document.visibilityState !== 'visible') { return false }
-        if (!document.hasFocus()) { return false }
-        return true
-      }
-
-      // 上报停留时长（带防抖）
-      function reportStayTime(eventType, immediate = false) {
-        stopTimer()
-        if (reportTimer) {
-          clearTimeout(reportTimer)
-          reportTimer = null
-        }
-        if (immediate) {
-          doReport(eventType)
-          return
-        }
-        reportTimer = setTimeout(function () {
-          doReport(eventType)
-          reportTimer = null
-        }, 100)
-      }
-
-      // 实际执行上报
-      function doReport(eventType) {
-        if (window.frog && totalTime > 0) {
-          const serverData = window.__SERVER_DATA__ || {}
-          const chatId = serverData.watermarkChatId
-          window.frog.add({
-            url: '/time/HtmlPage/enter',
-            eventId: 42818,
-            customExtend: {
-              chat_id: chatId,
-              use_time: Math.floor(totalTime / 1000), 
-            },
-            duration: Math.floor(totalTime / 1000), 
-            currentPage: 'HtmlPage',
-            eventAction: 'time',
-            eventName: 'enter'
-          })
-          console.log(`[埋点] 页面停留时长上报 (${eventType}):`, Math.floor(totalTime / 1000), '秒')
-          totalTime = 0
-        }
-      }
-
-      // 清理函数：移除所有事件监听器
-      function cleanup() {
-        console.log('[埋点] 清理计时器资源')
-        if (reportTimer) {
-          clearTimeout(reportTimer)
-          reportTimer = null
-        }
-        document.removeEventListener('visibilitychange', handleVisibilityChange)
-        window.removeEventListener('blur', handleBlur)
-        window.removeEventListener('focus', handleFocus)
-        window.removeEventListener('beforeunload', handleBeforeUnload)
-        window.removeEventListener('pagehide', handlePageHide)
-        startTime = null
-        totalTime = 0
-      }
-
-      function handleVisibilityChange() {
-        if (document.hidden) {
-          console.log('[埋点] visibilitychange - 页面隐藏')
-          reportStayTime('visibilitychange')
-        } else {
-          console.log('[埋点] visibilitychange - 页面显示，开始新的计时')
-          startTimer()
-        }
-      }
-
-      function handleBlur() {
-        console.log('[埋点] blur - 窗口失去焦点')
-        reportStayTime('blur')
-      }
-
-      function handleFocus() {
-        console.log('[埋点] focus - 窗口获得焦点，开始新的计时')
-        startTimer()
-      }
-
-      function handleBeforeUnload() {
-        console.log('[埋点] beforeunload - 页面即将卸载')
-        reportStayTime('beforeunload', true)
-        cleanup()
-      }
-
-      function handlePageHide() {
-        console.log('[埋点] pagehide - 页面隐藏')
-        reportStayTime('pagehide', true)
-      }
-
-      function handleDOMContentLoaded() {
-        if (isPageVisible()) {
-          startTimer()
-        }
-      }
-
-      document.addEventListener('visibilitychange', handleVisibilityChange)
-      window.addEventListener('blur', handleBlur)
-      window.addEventListener('focus', handleFocus)
-      if (document.readyState === 'loading') {
-        window.addEventListener('DOMContentLoaded', handleDOMContentLoaded)
-      } else {
-        if (isPageVisible()) {
-          startTimer()
-        }
-      }
-      window.addEventListener('beforeunload', handleBeforeUnload)
-      window.addEventListener('pagehide', handlePageHide)
-    })()
-
-    /**
-     * 点击飞象老师 Logo 的埋点
-     */
-    function trackLogoClick(event) {
-      event.stopPropagation()
-      if (window.frog) {
-        const serverData = window.__SERVER_DATA__ || {}
-        const chatId = serverData.watermarkChatId
-        console.log('trackHtmlClick', chatId)
-        window.frog.add({
-          url: '/click/HtmlPage/logo',
-          eventId: 42816,
-          customExtend: {
-            chat_id: chatId,
-          },
-          currentPage: 'HtmlPage',
-          eventAction: 'click',
-          eventName: 'logo'
-        })
-        console.log('[埋点] 点击飞象老师 Logo')
-      }
-    }
-
-    /**
-     * 点击立即体验的埋点
-     */
-    function trackStartButtonClick(event) {
-      event.stopPropagation()
-      if (window.frog) {
-        const serverData = window.__SERVER_DATA__ || {}
-        const chatId = serverData.watermarkChatId
-        console.log('trackHtmlClick', chatId)
-        window.frog.add({
-          url: '/click/HtmlPage/start',
-          eventId: 42817,
-          customExtend: {
-            chat_id: chatId
-          },
-          currentPage: 'HtmlPage',
-          eventAction: 'click',
-          eventName: 'start'
-        })
-        console.log('[埋点] 点击立即体验')
-      }
-    }
-
-    // 绑定点击事件
-    document.addEventListener('DOMContentLoaded', function () {
-      const logoElement = document.querySelector('.left-watermark-content')
-      if (logoElement) {
-        logoElement.addEventListener('click', function (event) {
-          trackLogoClick(event)
-          openFeixiangTeacher(event)
-        })
-      }
-
-      const startButton = document.querySelector('.jump-button')
-      if (startButton) {
-        startButton.addEventListener('click', function (event) {
-          trackStartButtonClick(event)
-          openFeixiangTeacher(event)
-        })
-      }
-
-      const watermarkOverlay = document.querySelector('.watermark-overlay')
-      if (watermarkOverlay) {
-        watermarkOverlay.addEventListener('click', function (event) {
-          const target = event.target
-          const isLogo = target.closest('.left-watermark-content')
-          const isButton = target.closest('.jump-button')
-          if (!isLogo && !isButton) {
-            openFeixiangTeacher(event)
-          }
-        })
-      }
-    })
-
-    // ==================== 原有功能代码 ====================
-
-    function adjustRem() {
-      const pcBaseWidth = 375 // 设计稿
-      const width = document.documentElement.clientWidth
-      document.documentElement.style.fontSize = `${(width / pcBaseWidth * 100).toFixed(2)}px`
-    }
-
-    // 移动端检测和按钮隐藏逻辑
-    function checkAndHideButtonOnMobile() {
+    function checkMobileLayout () {
       const isMobile = getIsMobile()
       if (isMobile) {
         adjustRem()
       }
-      const jumpButton = document.querySelector('.right-watermark-content .jump-button');
+      
       const iframeContainer = document.querySelector('.iframe-container');
-
-      // 增加存在判断，避免按钮被移除后报错影响脚本执行
-      if (jumpButton) {
-        if (isMobile) {
-          jumpButton.style.display = 'none';
-        } else {
-          jumpButton.style.display = 'flex'
-        }
-      }
 
       if (iframeContainer) {
         if (isMobile) {
@@ -416,39 +129,13 @@
       }
     }
 
-    function handleResize() {
-      checkAndHideButtonOnMobile();
-      const isMobile = getIsMobile()
-      const watermarkOverlay = document.querySelector('.watermark-overlay');
-      const iframeContainer = document.querySelector('.iframe-container');
-
-      if (watermarkOverlay) {
-        if (isMobile) {
-          watermarkOverlay.onclick = function () {
-            return;
-          };
-        } else {
-          watermarkOverlay.onclick = openFeixiangTeacher;
-        }
-      }
-
-      if (iframeContainer) {
-        if (isMobile) {
-          iframeContainer.classList.add('mobile');
-        } else {
-          iframeContainer.classList.remove('mobile');
-        }
-      }
+    function handleResize () {
+      checkMobileLayout();
     }
 
+    // 監聽窗口大小變化與頁面加載
     window.addEventListener('resize', handleResize);
-    document.addEventListener('DOMContentLoaded', checkAndHideButtonOnMobile);
-
-    function clearAllEvents() {
-      window.removeEventListener('resize', handleResize);
-      document.removeEventListener('DOMContentLoaded', checkAndHideButtonOnMobile);
-    }
-    window.addEventListener('beforeunload', clearAllEvents);
+    document.addEventListener('DOMContentLoaded', checkMobileLayout);
 
   </script>
 </body>
