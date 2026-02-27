@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!-- saved from url=(0012)about:srcdoc -->
 <html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -66,7 +67,7 @@
       <button class="btn btn-accent" id="playFullAudioBtn" style="padding: 8px 16px; font-size: 14px;">🎵 完整故事磨耳朵</button>
     </div>
     <div style="text-align: center;"><div class="page-indicator" id="pageIndicator">第 1 页 / 共 16 页</div></div>
-    <div id="bookContent"><img src="https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/z5jKBsPHSehLcErdd3dw6S.png" class="page-image"><div class="text-container"><div class="sentence"><span class="word" data-word="My">My</span> <span class="word" data-word="Good">Good</span> <span class="word" data-word="Friend">Friend</span> <span class="word" data-word="Mimi">Mimi</span></div><div class="chinese-translation hidden">我的好朋友咪咪</div></div></div>
+    <div id="bookContent"><img src="https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/eoyyHaF9cPSPM9zFThcn2b.png" class="page-image"><div class="text-container"><div class="sentence"><span class="word" data-word="My">My</span> <span class="word" data-word="Good">Good</span> <span class="word" data-word="Friend">Friend</span> <span class="word" data-word="Mimi">Mimi</span></div><div class="chinese-translation hidden">我的好朋友咪咪</div></div></div>
     <div class="reading-mode" id="readingMode" style="display: none;">
       <div class="reading-status" id="readingStatus">准备跟读</div>
       <div class="countdown" id="countdown"></div>
@@ -98,82 +99,82 @@
   <script>
     const bookData = [
       {
-        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/z5jKBsPHSehLcErdd3dw6S.png',
+        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/eoyyHaF9cPSPM9zFThcn2b.png',
         sentences: [{ en: "My Good Friend Mimi", cn: "我的好朋友咪咪" }],
         audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/3qms4wsXnN83sep9dKQwBJ.mp3"
       },
       {
-        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/XM9BKaAkDX8c5P9km2sYhK.png',
+        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/9p72KDA4fmGUNHwmtYSemb.png',
         sentences: [{ en: "I have a good friend in my home.", cn: "我家里有一个好朋友。" }],
         audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/dWf4jijx5WFbWiX6wZ4RVL.mp3"
       },
       {
-        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/S89XfDTJMD2SsrTvVrqW9B.png',
+        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/EoDBbtGAnzQtJLiXdtCtAY.png',
         sentences: [{ en: "It's a cat.", cn: "它是一只猫。" }],
         audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/VbjhcwLCkUk9kV2rhi3oXj.mp3"
       },
       {
-        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/kVCDHuG4DnzLs8Kx4QvZGH.png',
+        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/9sh43Vnc8EwPDPMJtMhnzS.png',
+        sentences: [{ en: "Its name is Mimi.", cn: "它的名字叫咪咪。" }],
+        audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/5PwXEtRyaYoDcCnSrzapNJ.mp3"
+      },
+      {
+        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/kw7VsHpneTbftUn9gsysbT.png',
         sentences: [{ en: "It's white and yellow.", cn: "它是白黄相间的。" }],
         audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/GzewEfucAox9SXfk4TDVh4.mp3"
       },
       {
-        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/qbagXb3T3w3vqXPizvhTQX.png',
-        sentences: [{ en: "It has two big eyes and a small nose.", cn: "它有两只大眼睛和一个小鼻子。" }],
-        audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/NAMRZyWR63EdS6jhbNRwD2.mp3"
+        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/q83EfpmKhqrvkXPbkCFgBR.png',
+        sentences: [{ en: "It has big ears, a round face and a thin tail.", cn: "它的耳朵大大的，脸圆圆的，尾巴细细的。" }],
+        audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/Z4ecLaoo2zKLB9nbUeZBrH.mp3"
       },
       {
-        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/rbrKys8ijsmcpiGJaqdDv6.png',
-        sentences: [{ en: "It has a long tail.", cn: "它有一条长尾巴。" }],
-        audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/HKDnFWNx8mnfXGkKqyTfC7.mp3"
+        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/o3YWu9WRwkMNyes9tg5M2e.png',
+        sentences: [{ en: "It's very beautiful.", cn: "它非常漂亮。" }],
+        audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/AeGuVFJFV834Mrh2YpGRMV.mp3"
       },
       {
-        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/hqWrGDBLAawq5fuSeidTnS.png',
-        sentences: [{ en: "It likes fish very much.", cn: "它非常喜欢吃鱼。" }],
-        audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/NgKW2yJKT2DdoZKwmsznxB.mp3"
-      },
-      {
-        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/qibt9gL9yb68QnUtADahmW.png',
+        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/cWUsVs9vD9k5WLFuTopxJW.png',
         sentences: [{ en: "It greets me when I come back from school.", cn: "当我放学回家时，它会迎接我。" }],
         audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/J7woXhNaaqdirkG5R8q9xT.mp3"
       },
       {
-        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/BaxGXw9eLM379QZQ7ejeDR.png',
+        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/rMqFuUkyyvn8n8EoAECoZT.png',
         sentences: [{ en: "It often plays with a ball.", cn: "它经常玩球。" }],
         audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/EypKLQh6KTGnqyJ7XZcNd3.mp3"
       },
       {
-        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/2ZPuQAnYxf2n9J9TdHJ55b.png',
+        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/yq58CQNrih94XwL7CG6Nc2.png',
         sentences: [{ en: "How cute is that!", cn: "多可爱啊！" }],
         audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/Zwf938vpaJWpJ8MLWgsymC.mp3"
       },
       {
-        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/XuNjVKXFUjm89wrnfqRE6E.png',
+        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/C3JhiGMdBY5qoHh58tVoLV.png',
         sentences: [{ en: "My friends Mary and Alice come to see it.", cn: "我的朋友玛丽和爱丽丝来看它。" }],
         audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/MbrQuPo974bbpp5GKPT6sP.mp3"
       },
       {
-        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/77uSSSKMB78krJNyu5gyoj.png',
+        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/WtkNKARzo2jqpynmyHbyxf.png',
         sentences: [{ en: "They bring a toy mouse for it, but Mimi hides behind the sofa or in a box.", cn: "她们给它带了一个玩具老鼠，但咪咪躲在沙发后面或盒子里。" }],
         audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/w2bGh2pFhBQyak4hAkcgT3.mp3"
       },
       {
-        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/GtPyrisjNxodpXuvHwqa63.png',
+        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/aWvuryFsTtoBrCZd52rE8B.png',
         sentences: [{ en: "When my family sits on the sofa, it always joins us.", cn: "当我的家人坐在沙发上时，它总是加入我们。" }],
         audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/vdoQMGGGbfZcHq9symsvYF.mp3"
       },
       {
-        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/myvwCE3YTgC2hFEnRjD7HR.png',
+        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/ec8txEUayEsATHzwpygd7i.png',
         sentences: [{ en: "In the evening, I study at my desk, but it jumps onto the desk, too.", cn: "晚上，我在书桌前学习，但它也跳到书桌上。" }],
         audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/VoVavGvWk2rPMK5Q2exGrb.mp3"
       },
       {
-        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/hKjkga35ZbNgeYGjJGVYDB.png',
+        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/FzNUxuP6tAZ6A4cEzmYfGX.png',
         sentences: [{ en: "At that time, I put it down.", cn: "那时，我把它放下来。" }],
         audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/83xjbrYAyePkjT8yLP5nC7.mp3"
       },
       {
-        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/LweaXQhSN2Jym7a2SsH6X7.png',
+        image: 'https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/ktCcSL3wuB98hcnBV4jPV5.png',
         sentences: [{ en: "It's not just a pet, but a member of the family.", cn: "它不仅仅是一只宠物，更是家庭的一员。" }],
         audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/QTaGfJXpTnDjRAAdd8abvh.mp3"
       }
@@ -262,8 +263,15 @@
       "just": { phonetic: "[dʒʌst]", translation: "adv. 仅仅", audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/ezPR2MvASoNu7uaCJemgrX.mp3" },
       "of": { phonetic: "[ɒv]", translation: "prep. ...的", audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/XBkvhQUhFsQSNfiiqXdHGd.mp3" },
       "and": { phonetic: "[ænd]", translation: "conj. 和", audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/Xb9wfVka7biH3ZSRWkJ4Zc.mp3" },
-      "to": { phonetic: "[tuː]", translation: "prep. 去", audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/HsrSLCpvw8r7BmSsJdoXyK.mp3" }
+      "to": { phonetic: "[tuː]", translation: "prep. 去", audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/HsrSLCpvw8r7BmSsJdoXyK.mp3" },
+      // 新增补充词汇
+      "round": { phonetic: "[raʊnd]", translation: "adj. 圆的", audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/NvDjaZmJSPtidG3nuUC277.mp3" },
+      "face": { phonetic: "[feɪs]", translation: "n. 脸", audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/WPtZT76QKT6prT3xDDMy7d.mp3" },
+      "thin": { phonetic: "[θɪn]", translation: "adj. 瘦的", audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/6jR5cv7rND74mrNrT9hpvM.mp3" },
+      "beautiful": { phonetic: "[ˈbjuːtɪfl]", translation: "adj. 美丽的", audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/UcTSuRsiCbJwjpBdbvfRJ8.mp3" },
+      "ears": { phonetic: "[ɪəz]", translation: "n. 耳朵(复数)", audio: "https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/audio/yYgo5YDDqBRHbU2sUynsYL.mp3" }
     };
+
 
     const wordVariations = {
       'friends': 'friend',
@@ -274,8 +282,10 @@
       'hides': 'hides',
       'sits': 'sits',
       'joins': 'joins',
-      'jumps': 'jumps'
+      'jumps': 'jumps',
+      'ears': 'ear'
     };
+
 
     let currentPage = 0;
     let isReading = false;
@@ -340,8 +350,10 @@
         wordPlayer.src = data.audio;
         wordPlayer.play();
       } else {
-        // 禁用 TTS 回退，确保音色统一
-        console.warn('No audio found for:', clickedWord);
+        // 启用 TTS 回退
+        const u = new SpeechSynthesisUtterance(prototypeWord);
+        u.lang = 'en-US';
+        speechSynthesis.speak(u);
       }
 
       target.classList.add('clicked');
